@@ -17,7 +17,7 @@ public class DietQuestion {
 
     private final LocalDate date;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private final User user;
 
