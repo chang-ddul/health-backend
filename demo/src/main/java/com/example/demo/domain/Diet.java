@@ -1,9 +1,8 @@
-package domain;
+package com.example.demo.domain;
 
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Getter
@@ -14,7 +13,7 @@ public class Diet {
     @Column(name = "diet_id")
     private final Long id;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dq_id")
     private final DietQuestion dietQuestion;
 
