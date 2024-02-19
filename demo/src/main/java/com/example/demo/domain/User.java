@@ -48,9 +48,10 @@ public class User {
 
 
     protected User(){}
-    public static User createUserInfo(String password, String name, Double height, Double weight, Sex sex, Activity activity, Integer age) {
+    public static User createUserInfo(String email, String password, String name, Double height, Double weight, Sex sex, Activity activity, Integer age) {
         User user = new User();
 
+        user.email = email;
         user.password = password;
         user.name = name;
         user.height = height;
