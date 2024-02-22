@@ -11,35 +11,39 @@ public class Diet {
     @Id
     @GeneratedValue
     @Column(name = "diet_id")
-    private final Long id;
+    private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dq_id")
-    private final DietQuestion dietQuestion;
+    private DietQuestion dietQuestion;
 
-    private final String breakfast;
+    private String breakfast;
 
-    private final int breakfastCalorie;
+    private int breakfastCalorie;
 
-    private final String lunch;
+    private String lunch;
 
-    private final int lunchCalorie;
+    private int lunchCalorie;
 
-    private final String dinner;
+    private String dinner;
 
-    private final int dinnerCalorie;
+    private int dinnerCalorie;
 
-    private final int sumOfCalorie;
+    private int sumOfCalorie;
 
-    public Diet(Long id, DietQuestion dietQuestion, String breakfast, int breakfastCalorie, String lunch, int lunchCalorie, String dinner, int dinnerCalorie, int sumOfCalorie) {
-        this.id = id;
-        this.dietQuestion = dietQuestion;
-        this.breakfast = breakfast;
-        this.breakfastCalorie = breakfastCalorie;
-        this.lunch = lunch;
-        this.lunchCalorie = lunchCalorie;
-        this.dinner = dinner;
-        this.dinnerCalorie = dinnerCalorie;
-        this.sumOfCalorie = sumOfCalorie;
+    protected Diet(){}
+    public static Diet createDiet(DietQuestion dietQuestion, String breakfast, int breakfastCalorie, String lunch, int lunchCalorie, String dinner, int dinnerCalorie, int sumOfCalorie) {
+        Diet diet = new Diet();
+
+        diet.dietQuestion = dietQuestion;
+        diet.breakfast = breakfast;
+        diet.breakfastCalorie = breakfastCalorie;
+        diet.lunch = lunch;
+        diet.lunchCalorie = lunchCalorie;
+        diet.dinner = dinner;
+        diet.dinnerCalorie = dinnerCalorie;
+        diet.sumOfCalorie = sumOfCalorie;
+
+        return diet;
     }
 }

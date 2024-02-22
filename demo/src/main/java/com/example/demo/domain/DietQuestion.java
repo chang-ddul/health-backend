@@ -13,17 +13,22 @@ public class DietQuestion {
     @Id
     @GeneratedValue
     @Column(name = "dq_date")
-    private final Long id;
+    private Long id;
 
-    private final LocalDate date;
+    private LocalDate date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    private final User user;
+    private User user;
 
-    public DietQuestion(Long id, LocalDate date, User user) {
-        this.id = id;
-        this.date = date;
-        this.user = user;
+    protected DietQuestion(){}
+
+    public static DietQuestion createDietQuestion(LocalDate date, User user) {
+        DietQuestion dietQuestion = new DietQuestion();
+
+        dietQuestion.date = date;
+        dietQuestion.user = user;
+
+        return dietQuestion;
     }
 }

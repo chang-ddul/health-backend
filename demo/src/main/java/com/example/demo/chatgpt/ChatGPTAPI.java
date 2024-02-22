@@ -8,7 +8,7 @@ public class ChatGPTAPI {
 
    public static String chatGPT(String prompt) {
        String url = "https://api.openai.com/v1/chat/completions";
-       String apiKey = "apiKey";
+       String apiKey = "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";
        String model = "gpt-3.5-turbo";
 
        try {
