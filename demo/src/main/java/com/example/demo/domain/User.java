@@ -35,8 +35,6 @@ public class User {
 
     private Double weight;
 
-    private int x;
-
     @Enumerated(EnumType.STRING)
     private Sex sex;
 

@@ -18,7 +18,7 @@ public class UserController {
         return new CreateUserResponseDto(joinedUserId);
     }
 
-    @PutMapping("/users/{userId}")
+    @PutMapping("/users/{id}")
     public UpdateUserResponseDto updateUser(@PathVariable("id") Long id, @RequestBody UpdateUserRequestDto updateUserRequestDto) {
         User user = userService.findOne(id);
 
@@ -29,12 +29,12 @@ public class UserController {
         return new UpdateUserResponseDto(user.getId());
     }
 
-    @DeleteMapping("/users/{userId}")
+    @DeleteMapping("/users/{id}")
     public void deleteUser(@PathVariable("id") Long id){
         userService.deleteUser(id);
     }
 
-    @GetMapping("/users/{userId}")
+    @GetMapping("/users/{id}")
     public UserResponseDto getUser(@PathVariable("id") Long id) {
         return new UserResponseDto(userService.findOne(id));
     }

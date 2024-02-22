@@ -1,9 +1,8 @@
 package com.example.demo.dto.user;
 
-import com.example.demo.domain.Activity;
-import com.example.demo.domain.Object;
-import com.example.demo.domain.Sex;
+import lombok.Getter;
 
+@Getter
 public class CreateUserResponseDto {
     private Long id;
 

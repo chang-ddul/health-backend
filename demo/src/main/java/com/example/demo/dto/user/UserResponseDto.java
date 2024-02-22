@@ -4,7 +4,9 @@ import com.example.demo.domain.Activity;
 import com.example.demo.domain.Object;
 import com.example.demo.domain.Sex;
 import com.example.demo.domain.User;
+import lombok.Getter;
 
+@Getter
 public class UserResponseDto {
     private Long id;
     private String email;
