@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -27,5 +29,13 @@ public class UserService {
         userRepository.save(user);
 
         return user.getId();
+    }
+
+    public User findOne(Long id){
+        Optional<User> user = userRepository.findById(id);
+        if(user.isEmpty()){
+            tr
+        }
+        return user.get();
     }
 }

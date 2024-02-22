@@ -3,6 +3,7 @@ package com.example.demo.domain;
 import com.example.demo.repository.UserRepository;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Length;
@@ -18,7 +19,7 @@ public class User {
     @Column(name = "user_id")
     private Long id;
 
-    @NotEmpty(message = "메세지는 필수입니다")
+    @NotEmpty(message = "이메일은 필수입니다")
     @Column(length = 30)
     private String email;
 
@@ -51,6 +52,7 @@ public class User {
 
 
     protected User(){}
+
     public static User createUserInfo(String email, String password, String name, Double height, Double weight, Sex sex, Activity activity, Integer age, Object object) {
         User user = new User();
 
