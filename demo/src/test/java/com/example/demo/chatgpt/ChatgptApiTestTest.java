@@ -4,6 +4,7 @@ import com.example.demo.domain.*;
 import com.example.demo.domain.Object;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.DietQuestionService;
+import com.example.demo.service.DietService;
 import com.example.demo.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +26,15 @@ class ChatgptApiTestTest {
     @Autowired
     DietQuestionService dietQuestionService;
 
+    @Autowired
+    DietService dietService;
+
     @Test
     void generateDiet() {
         User user = User.createUserInfo("email@gmail.com", "pw", "name", 179D, 88D, Sex.MALE, Activity.BIG, 21, Object.MAINTAIN);
 
         DietQuestion dietQuestion = DietQuestion.createDietQuestion(LocalDate.now(), user);
-        String s = dietQuestionService.createDiet(dietQuestion);
+        String s = dietService.createGptResponse(dietQuestion);
         System.out.println(s);
     }
 }
