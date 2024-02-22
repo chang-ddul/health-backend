@@ -40,6 +40,9 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Activity activity;
 
+    @Enumerated(EnumType.STRING)
+    private Object object;
+
     private Integer age;
 
     private Integer bmr;
@@ -48,7 +51,7 @@ public class User {
 
 
     protected User(){}
-    public static User createUserInfo(String email, String password, String name, Double height, Double weight, Sex sex, Activity activity, Integer age) {
+    public static User createUserInfo(String email, String password, String name, Double height, Double weight, Sex sex, Activity activity, Integer age, Object object) {
         User user = new User();
 
         user.email = email;
@@ -59,6 +62,7 @@ public class User {
         user.age = age;
         user.sex = sex;
         user.activity = activity;
+        user.object = object;
 
         Double calbmr = null;
         Double calam = null;
@@ -77,6 +81,12 @@ public class User {
         }
 
         user.bmr = calbmr.intValue();
+
+        switch(user.object){
+            case LOSS -> calam -= 500;
+            case MAINTAIN -> calam += 100;
+            case GAIN -> calam += 500;
+        }
         user.am = calam.intValue();
 
         return user;
@@ -105,6 +115,13 @@ public class User {
         }
 
         this.bmr = calbmr.intValue();
+
+        switch(this.object){
+            case LOSS -> calam -= 500;
+            case MAINTAIN -> calam += 100;
+            case GAIN -> calam += 500;
+        }
+
         this.am = calam.intValue();
 
         return this.id;

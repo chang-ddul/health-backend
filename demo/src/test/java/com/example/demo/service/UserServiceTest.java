@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.Activity;
+import com.example.demo.domain.Object;
 import com.example.demo.domain.Sex;
 import com.example.demo.domain.User;
 import com.example.demo.repository.UserRepository;
@@ -26,7 +27,7 @@ class UserServiceTest {
     void update() {
 
         User user = User.createUserInfo("조성우", "성우","조성우",180.0, 70.0, Sex.MALE, Activity.BIG
-        , 21);
+        , 21, Object.GAIN);
 
         Long joinedUserId = userService.join(user);
 
