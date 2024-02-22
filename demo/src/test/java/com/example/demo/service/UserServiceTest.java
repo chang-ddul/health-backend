@@ -44,7 +44,7 @@ class UserServiceTest {
 
         Long joinedUserId = userService.join(user);
 
-        Long updateId = userService.update(user, 150.0, 15.0, 54, Activity.BIG);
+        Long updateId = userService.update(user, "1234", "이준범", 150.0, 15.0, Sex.FEMALE, 54, Activity.BIG, Object.GAIN);
 
         Optional<User> findUser1 = userRepository.findById(updateId);
 

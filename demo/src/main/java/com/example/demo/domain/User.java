@@ -96,11 +96,15 @@ public class User {
         return user;
     }
 
-    public Long updateUserInfo(Double height, Double weight, Integer age, Activity activity){
+    public Long updateUserInfo(String password, String name, Double height, Double weight, Sex sex, Integer age, Activity activity, Object object){
+        this.password = password;
+        this.name = name;
         this.height = height;
         this.weight = weight;
         this.age = age;
+        this.sex = sex;
         this.activity = activity;
+        this.object = object;
 
         Double calbmr = null;
         Double calam = null;
