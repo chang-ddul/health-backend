@@ -33,8 +33,16 @@ class ChatgptApiTestTest {
     void generateDiet() {
         User user = User.createUserInfo("email@gmail.com", "pw", "name", 179D, 88D, Sex.MALE, Activity.BIG, 21, Object.MAINTAIN);
 
-        DietQuestion dietQuestion = DietQuestion.createDietQuestion(LocalDate.now(), user);
-        String s = dietService.createGptResponse(dietQuestion);
-        System.out.println(s);
+        DietQuestion dietQuestion = DietQuestion.createDietQuestion(user);
+
+        Diet gptResponse = dietService.createGptResponse(dietQuestion);
+
+        System.out.println("gptResponse.breakfast = " + gptResponse.getBreakfast());
+        System.out.println("gptResponse.lunch = " + gptResponse.getLunch());
+        System.out.println("gptResponse.lunch = " + gptResponse.getDinner());
+        System.out.println("gptResponse.bKcal = " + gptResponse.getBreakfastCalorie());
+        System.out.println("gptResponse.lkcal = " + gptResponse.getLunchCalorie());
+        System.out.println("gptResponse.dkcal = " + gptResponse.getDinnerCalorie());
+        System.out.println("gptResponse.getSumOfCalorie() = " + gptResponse.getSumOfCalorie());
     }
 }

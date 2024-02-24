@@ -23,10 +23,10 @@ public class DietQuestion {
 
     protected DietQuestion(){}
 
-    public static DietQuestion createDietQuestion(LocalDate date, User user) {
+    public static DietQuestion createDietQuestion(User user) {
         DietQuestion dietQuestion = new DietQuestion();
 
-        dietQuestion.date = date;
+        dietQuestion.date = LocalDate.now();
         dietQuestion.user = user;
 
         return dietQuestion;
