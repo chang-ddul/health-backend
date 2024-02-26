@@ -27,12 +27,6 @@ public class DietQuestionService {
     }
 
 
-    //다이어트 퀘스쳔에서 다이어트를 생성한다.
-
-    //다이어트 서비스에서 다이어트를 생성한다.
-
-
-
 
 
 }
