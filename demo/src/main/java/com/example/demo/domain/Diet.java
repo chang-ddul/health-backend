@@ -14,7 +14,7 @@ public class Diet {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "dq_id")
+    @JoinColumn(name = "diet_question_id")
     private DietQuestion dietQuestion;
 
     private String breakfast;

@@ -38,7 +38,4 @@ public class DietQuestionService {
         return dietQuestionRepository.findAllByUserId(userId);
     }
 
-
-
-
 }
