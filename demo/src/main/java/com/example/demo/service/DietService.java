@@ -3,7 +3,6 @@ package com.example.demo.service;
 
 import com.example.demo.domain.Diet;
 import com.example.demo.domain.DietQuestion;
-import com.example.demo.dto.user.DietQuestionDto;
 import com.example.demo.exception.DietException;
 import com.example.demo.repository.DietRepository;
 import lombok.RequiredArgsConstructor;
@@ -86,8 +85,8 @@ public class DietService {
         dietRepository.findById(Id);
     }
 
-    public List<Diet> findByDietQuestionId(Long DietQuestionId){
-        return dietRepository.findAllByDietQuestionId(DietQuestionId);
+    public Diet findByDietQuestionId(Long DietQuestionId){
+        return dietRepository.findByDietQuestionId(DietQuestionId);
     }
 
 }
