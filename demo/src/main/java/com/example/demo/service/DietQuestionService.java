@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,6 +32,10 @@ public class DietQuestionService {
     @Transactional
     public void deleteDietQuestion(Long Id){
         dietQuestionRepository.deleteById(Id);
+    }
+
+    public List<DietQuestion> findByUserId(Long userId){
+        return dietQuestionRepository.findAllByUserId(userId);
     }
 
 
