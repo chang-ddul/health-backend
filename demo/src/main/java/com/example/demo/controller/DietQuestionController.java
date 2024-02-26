@@ -9,11 +9,13 @@ import com.example.demo.dto.user.CreateUserResponseDto;
 import com.example.demo.service.DietQuestionService;
 import com.example.demo.service.DietService;
 import com.example.demo.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "식단")
 @RestController
 @RequiredArgsConstructor
 public class DietQuestionController {
@@ -21,11 +23,14 @@ public class DietQuestionController {
     private final DietQuestionService dietQuestionService;
     private final DietService dietService;
 
+
     @PostMapping("/users/{id}/diet")
     public DietQuestionResponseDto saveDietQuestion(@PathVariable("id") Long id){
         User user = userService.findOne(id);
         DietQuestion dietQuestion = DietQuestion.createDietQuestion(user);
+        dietQuestionService.join(dietQuestion);
         Diet diet = dietService.createGptResponse(dietQuestion);
+        dietService.join(diet);
         return new DietQuestionResponseDto(user, dietQuestion, diet);
     }
 
