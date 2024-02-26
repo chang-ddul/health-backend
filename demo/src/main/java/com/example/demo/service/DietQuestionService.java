@@ -8,6 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -24,6 +26,11 @@ public class DietQuestionService {
 
     public String createDiet(DietQuestion dietQuestion){
         return ChatgptApiCall.generateDiet(dietQuestion.getUser());
+    }
+
+    @Transactional
+    public void deleteDietQuestion(Long Id){
+        dietQuestionRepository.deleteById(Id);
     }
 
 

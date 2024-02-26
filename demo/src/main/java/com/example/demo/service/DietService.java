@@ -80,4 +80,9 @@ public class DietService {
 
     }
 
+    @Transactional
+    public void deleteDiet(Long Id){
+        dietRepository.findById(Id);
+    }
+
 }
