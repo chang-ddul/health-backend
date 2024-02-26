@@ -1,7 +1,7 @@
 package com.example.demo.dto.user;
 
 import com.example.demo.domain.Activity;
-import com.example.demo.domain.Object;
+import com.example.demo.domain.Purpose;
 import com.example.demo.domain.Sex;
 import com.example.demo.domain.User;
 import lombok.Getter;
@@ -15,7 +15,7 @@ public class UserResponseDto {
     private Double weight;
     private Sex sex;
     private Activity activity;
-    private Object object;
+    private Purpose purpose;
     private Integer age;
     private Integer bmr;
     private Integer am;
@@ -28,7 +28,7 @@ public class UserResponseDto {
         this.weight = user.getWeight();
         this.sex = user.getSex();
         this.activity = user.getActivity();
-        this.object = user.getObject();
+        this.purpose = user.getPurpose();
         this.age = user.getAge();
         this.bmr = user.getBmr();
         this.am = user.getAm();

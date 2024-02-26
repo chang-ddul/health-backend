@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.Activity;
-import com.example.demo.domain.Object;
+import com.example.demo.domain.Purpose;
 import com.example.demo.domain.Sex;
 import com.example.demo.domain.User;
 import com.example.demo.exception.CustomException;
@@ -27,8 +27,8 @@ public class UserService {
     }
 
     @Transactional
-    public Long update(User user, String password, String name, Double height, Double weight, Sex sex, Integer age, Activity activity, Object object){
-        user.updateUserInfo(password, name, height, weight, sex, age, activity, object);
+    public Long update(User user, String password, String name, Double height, Double weight, Sex sex, Integer age, Activity activity, Purpose purpose){
+        user.updateUserInfo(password, name, height, weight, sex, age, activity, purpose);
         userRepository.save(user);
 
         return user.getId();

@@ -1,13 +1,8 @@
 package com.example.demo.domain;
 
-import com.example.demo.repository.UserRepository;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import org.hibernate.Length;
-import org.springframework.transaction.annotation.Transactional;
 
 @Entity
 @Table(name = "users")
@@ -42,7 +37,7 @@ public class User {
     private Activity activity;
 
     @Enumerated(EnumType.STRING)
-    private Object object;
+    private Purpose purpose;
 
     private Integer age;
 
@@ -53,7 +48,7 @@ public class User {
 
     protected User(){}
 
-    public static User createUserInfo(String email, String password, String name, Double height, Double weight, Sex sex, Activity activity, Integer age, Object object) {
+    public static User createUserInfo(String email, String password, String name, Double height, Double weight, Sex sex, Activity activity, Integer age, Purpose purpose) {
         User user = new User();
 
         user.email = email;
@@ -64,7 +59,7 @@ public class User {
         user.age = age;
         user.sex = sex;
         user.activity = activity;
-        user.object = object;
+        user.purpose = purpose;
 
         Double calbmr = null;
         Double calam = null;
@@ -84,7 +79,7 @@ public class User {
 
         user.bmr = calbmr.intValue();
 
-        switch(user.object){
+        switch(user.purpose){
             case LOSS -> calam -= 500;
             case MAINTAIN -> calam += 100;
             case GAIN -> calam += 500;
@@ -94,7 +89,7 @@ public class User {
         return user;
     }
 
-    public Long updateUserInfo(String password, String name, Double height, Double weight, Sex sex, Integer age, Activity activity, Object object){
+    public Long updateUserInfo(String password, String name, Double height, Double weight, Sex sex, Integer age, Activity activity, Purpose purpose){
         this.password = password;
         this.name = name;
         this.height = height;
@@ -102,7 +97,7 @@ public class User {
         this.age = age;
         this.sex = sex;
         this.activity = activity;
-        this.object = object;
+        this.purpose = purpose;
 
         Double calbmr = null;
         Double calam = null;
@@ -122,7 +117,7 @@ public class User {
 
         this.bmr = calbmr.intValue();
 
-        switch(this.object){
+        switch(this.purpose){
             case LOSS -> calam -= 500;
             case MAINTAIN -> calam += 100;
             case GAIN -> calam += 500;

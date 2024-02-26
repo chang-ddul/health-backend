@@ -1,9 +1,8 @@
 package com.example.demo.dto.user;
 
 import com.example.demo.domain.Activity;
-import com.example.demo.domain.Object;
+import com.example.demo.domain.Purpose;
 import com.example.demo.domain.Sex;
-import com.example.demo.domain.User;
 import lombok.Getter;
 
 @Getter
@@ -14,7 +13,7 @@ public class UpdateUserRequestDto {
     private Double weight;
     private Sex sex;
     private Activity activity;
-    private Object object;
+    private Purpose purpose;
     private Integer age;
 
 }

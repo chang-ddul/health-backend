@@ -12,7 +12,7 @@ public class DietQuestion {
 
     @Id
     @GeneratedValue
-    @Column(name = "dq_date")
+    @Column(name = "diet_question_id")
     private Long id;
 
     private LocalDate date;

@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.domain.Activity;
-import com.example.demo.domain.Object;
+import com.example.demo.domain.Purpose;
 import com.example.demo.domain.Sex;
 import com.example.demo.domain.User;
 import com.example.demo.repository.UserRepository;
@@ -11,8 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class UserServiceTest {
@@ -26,7 +24,7 @@ class UserServiceTest {
     @Test
     void join() {
 
-        User user = User.createUserInfo("email@gmail.com", "pw", "name", 179D, 88D, Sex.MALE, Activity.BIG, 21, Object.MAINTAIN);
+        User user = User.createUserInfo("email@gmail.com", "pw", "name", 179D, 88D, Sex.MALE, Activity.BIG, 21, Purpose.MAINTAIN);
 
         Long joinedUserId = userService.join(user);
 
@@ -40,11 +38,11 @@ class UserServiceTest {
     void update() {
 
         User user = User.createUserInfo("조성우", "성우","조성우",180.0, 70.0, Sex.MALE, Activity.BIG
-        , 21, Object.GAIN);
+        , 21, Purpose.GAIN);
 
         Long joinedUserId = userService.join(user);
 
-        Long updateId = userService.update(user, "1234", "이준범", 150.0, 15.0, Sex.FEMALE, 54, Activity.BIG, Object.GAIN);
+        Long updateId = userService.update(user, "1234", "이준범", 150.0, 15.0, Sex.FEMALE, 54, Activity.BIG, Purpose.GAIN);
 
         Optional<User> findUser1 = userRepository.findById(updateId);
 

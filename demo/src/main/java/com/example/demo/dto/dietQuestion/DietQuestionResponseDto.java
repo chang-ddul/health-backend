@@ -1,11 +1,6 @@
 package com.example.demo.dto.dietQuestion;
 
 import com.example.demo.domain.*;
-import com.example.demo.domain.Object;
-import com.example.demo.dto.user.UserResponseDto;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 
 import java.time.LocalDate;

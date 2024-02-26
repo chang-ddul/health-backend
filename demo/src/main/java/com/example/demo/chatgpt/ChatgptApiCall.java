@@ -6,16 +6,16 @@ public class ChatgptApiCall {
 
     public static String generateDiet(User user){
 
-        String object = null;
+        String purpose = null;
 
-        switch (user.getObject()){
-            case LOSS -> object = "다이어트";
-            case GAIN -> object = "벌크업";
-            case MAINTAIN -> object = "체중유지";
+        switch (user.getPurpose()){
+            case LOSS -> purpose = "다이어트";
+            case GAIN -> purpose = "벌크업";
+            case MAINTAIN -> purpose = "체중유지";
         }
 
         String prompt = """
-내가 """ + object + """
+내가 """ + purpose + """
 를 할 건데 하루에 """ + user.getAm() +"""
 Kcal에 맞춰서 하루치 식단을 짜줘.
 아래 예시처럼 아침메뉴, 아침메뉴 열량, 점심메뉴, 점심메뉴 열량, 저녁메뉴, 저녁메뉴 열량을 엔터로 구분해서 작성해줘.
