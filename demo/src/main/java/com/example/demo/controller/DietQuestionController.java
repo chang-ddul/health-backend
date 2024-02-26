@@ -28,8 +28,8 @@ public class DietQuestionController {
     public DietQuestionResponseDto saveDietQuestion(@PathVariable("id") Long id){
         User user = userService.findOne(id);
         DietQuestion dietQuestion = DietQuestion.createDietQuestion(user);
-        dietQuestionService.join(dietQuestion);
         Diet diet = dietService.createGptResponse(dietQuestion);
+        dietQuestionService.join(dietQuestion);
         dietService.join(diet);
         return new DietQuestionResponseDto(user, dietQuestion, diet);
     }
