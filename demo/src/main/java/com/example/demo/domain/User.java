@@ -16,10 +16,9 @@ public class User {
 
     @NotEmpty(message = "이메일은 필수입니다")
     @Column(length = 30)
-    private String email;
+    private String username;
 
     @NotEmpty(message = "비밀번호는 필수입니다")
-    @Column(length = 20)
     private String password;
 
     @NotEmpty(message = "회원 이름은 필수입니다")
@@ -51,7 +50,7 @@ public class User {
     public static User createUserInfo(String email, String password, String name, Double height, Double weight, Sex sex, Activity activity, Integer age, Purpose purpose) {
         User user = new User();
 
-        user.email = email;
+        user.username = email;
         user.password = password;
         user.name = name;
         user.height = height;

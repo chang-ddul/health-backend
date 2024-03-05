@@ -7,6 +7,7 @@ import com.example.demo.domain.User;
 import com.example.demo.exception.CustomException;
 import com.example.demo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,12 +19,19 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
 
     @Transactional
     public Long join(User user){
-        User member = userRepository.save(user);
+        Boolean isExist = userRepository.existsByUsername(user.getUsername());
 
-        return member.getId();
+        if(isExist){
+            throw new CustomException("이미 존재하는 이메일 입니다.");
+        }
+        Long updateId = this.update(user, bCryptPasswordEncoder.encode(user.getPassword()), user.getName(), user.getHeight(), user.getWeight(), user.getSex(), user.getAge(), user.getActivity(), user.getPurpose());
+
+        return updateId;
     }
 
     @Transactional

@@ -22,7 +22,7 @@ public class UserResponseDto {
 
     public UserResponseDto(User user) {
         this.id = user.getId();
-        this.email = user.getEmail();
+        this.email = user.getUsername();
         this.name = user.getName();
         this.height = user.getHeight();
         this.weight = user.getWeight();
