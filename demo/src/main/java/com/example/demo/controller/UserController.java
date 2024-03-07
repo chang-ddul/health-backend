@@ -16,7 +16,7 @@ public class UserController {
     private final UserService userService;
 
     @Operation(summary = "유저 등록")
-    @PostMapping("/users")
+    @PostMapping("/join")
     public CreateUserResponseDto saveUser(@Parameter(description = "등록할 유저 정보") @RequestBody CreateUserRequestDto createUserRequestDto){
         User user = CreateUserRequestDto.toEntity(createUserRequestDto);
         Long joinedUserId = userService.join(user);

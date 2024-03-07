@@ -45,6 +45,7 @@ public class User {
     private Integer am;
 
 
+
     protected User(){}
 
     public static User createUserInfo(String email, String password, String name, Double height, Double weight, Sex sex, Activity activity, Integer age, Purpose purpose) {
